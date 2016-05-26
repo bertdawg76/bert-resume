@@ -1,0 +1,115 @@
+<navbar></navbar>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <h1>Bert Coleman</h1>
+    </div>
+  </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <hr>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <p>Riverton, UT | 801-836-4139 | <a href="mailto:bertcoleman76@gmail.com?subject=Email from my website">Email Me</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <h3>Professional Summary</h3>
+        <ul>
+          <li>Full stack developer using the MEAN stack</li>
+
+        </ul>
+      </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <h3>Programming Skills</h3>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <div class="row" ng-repeat="thing in display.skills">
+      <div class="col-sm-6 col-md-4">
+          <p>{{thing.title}}</p>
+          <p>{{thing.description | limitTo: 100}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <h3>Projects</h3>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4" ng-repeat="thing in display.projects">
+      <p>{{thing.project}}</p>
+      <!--<p>{{thing.describe}}</p>
+      <p><a href="{{thing.url}}" target="_blank">Github example</a></p>-->
+      <p>
+        <a ui-sref="viewSkill({id: thing._id})" class="btn btn-default" role="button">Details</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <h3>Employment History</h3>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <h5>Contract | Low-voltage electrical</h5>
+      <h5>January 2014 - Present</h5>
+      <ul>
+        <li>Managed employee's running low-voltage wiring on multi-million dollar homes and businesses</li>
+        <li>Followed wire schemes, designed wire schemes and set up wire routes</li>
+        <li>Managed inventory and employee's schedules</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <h5>Operations Manager | APX Alarm, AMP Alarm, Armor Alarm</h5>
+      <h5>November 2005 - December 2014</h5>
+      <ul>
+        <li>Managed technicians installing alarms and low-voltage components</li>
+        <li>Recruited and trained low-voltage technicians</li>
+        <li>Repaired and maintained alarm systems and cameras</li>
+      </ul>
+    </div>
+  </div>
+</div>
+

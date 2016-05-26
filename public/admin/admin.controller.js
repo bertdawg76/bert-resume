@@ -1,0 +1,100 @@
+angular.module('bertResume').controller('adminCtrl', function($scope, Info, Skill){
+  var vm = this;
+  //vm.items = [];
+  $scope.project = {};
+
+
+  init();
+  initAlso();
+  function init() {
+    Info.getAllInfo().then(function (response) {
+      console.log(response);
+      vm.projects = response.data;
+
+    });
+
+  }
+
+  function initAlso() {
+    Skill.getAllSkill().then(function (response) {
+      console.log(response);
+      vm.skills = response.data;
+
+    });
+
+  }
+
+
+  $scope.createInfo = function (info) {
+    console.log($scope.info);
+    Info.createInfo($scope.info).then(function (response) {
+      console.log(response);
+      init();
+    });
+
+  };
+
+  $scope.createSkill = function (skill) {
+    console.log($scope.skill);
+    Skill.createSkill($scope.skill).then(function (response) {
+      console.log(response);
+      init();
+    });
+
+  };
+
+  $scope.removeInfo = function (id) {
+    console.log(id);
+    Info.deleteInfo(id).then(function (response) {
+      console.log(response);
+      init()
+    })
+  };
+
+  $scope.removeSkill = function (id) {
+    console.log(id);
+    Skill.deleteSkill(id).then(function (response) {
+      console.log(response);
+      init()
+    })
+  };
+
+
+  $scope.updateInfo = function (id, info) {
+    console.log(id, info);
+    Info.updateInfo(id, info).then(function (response) {
+      console.log(response);
+      $scope.oneInfo = '';
+      $scope.editInfo = false;
+      init()
+    })
+  };
+
+  $scope.updateSkill = function (id, skill) {
+    console.log(id, skill);
+    Skill.updateInfo(id, skill).then(function (response) {
+      console.log(response);
+      $scope.oneSkill = '';
+      $scope.editSkill = false;
+      init()
+    })
+  };
+
+  $scope.editInfo = function (id) {
+    console.log(id);
+    $scope.editStuff = true;
+    Info.getOneInfo(id).then(function (response) {
+      console.log(response);
+      $scope.oneInfo = response.data.data;
+    });
+  };
+
+  $scope.editSkill = function (id) {
+    console.log(id);
+    $scope.editSkill = true;
+    Skill.getOneSkill(id).then(function (response) {
+      console.log(response);
+      $scope.oneInfo = response.data.data;
+    });
+  };
+});

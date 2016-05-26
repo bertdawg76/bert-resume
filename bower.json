@@ -1,0 +1,27 @@
+{
+  "name": "bert-resume",
+  "description": "resume site",
+  "main": "server.js",
+  "authors": [
+    "Bert Coleman"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-ui-router": "^0.3.0",
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6",
+    "lodash": "^4.13.1",
+    "angular-sanitize": "^1.5.5",
+    "angular-resource": "^1.5.5"
+  }
+}
