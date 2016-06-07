@@ -25,7 +25,7 @@ angular.module('bertResume').factory('Skill', function($http, $stateParams, Auth
   };
 
   skill.updateSkill = function(skill){
-    console.log(product);
+    console.log(skill);
     return $http.put('/api/Skill/' + skill._id, skill, {headers: {Authorization: 'Bearer ' + Auth.getToken()}}).success(function(data){
       return data;
     })

@@ -29,6 +29,7 @@ angular.module('bertResume').controller('adminCtrl', function($scope, Info, Skil
     console.log($scope.info);
     Info.createInfo($scope.info).then(function (response) {
       console.log(response);
+      $scope.info = '';
       init();
     });
 
@@ -38,7 +39,8 @@ angular.module('bertResume').controller('adminCtrl', function($scope, Info, Skil
     console.log($scope.skill);
     Skill.createSkill($scope.skill).then(function (response) {
       console.log(response);
-      init();
+      $scope.skill = '';
+      initAlso();
     });
 
   };
@@ -55,7 +57,7 @@ angular.module('bertResume').controller('adminCtrl', function($scope, Info, Skil
     console.log(id);
     Skill.deleteSkill(id).then(function (response) {
       console.log(response);
-      init()
+      initAlso()
     })
   };
 
@@ -65,24 +67,24 @@ angular.module('bertResume').controller('adminCtrl', function($scope, Info, Skil
     Info.updateInfo(id, info).then(function (response) {
       console.log(response);
       $scope.oneInfo = '';
-      $scope.editInfo = false;
+      $scope.editProject = false;
       init()
     })
   };
 
   $scope.updateSkill = function (id, skill) {
     console.log(id, skill);
-    Skill.updateInfo(id, skill).then(function (response) {
+    Skill.updateSkill(id, skill).then(function (response) {
       console.log(response);
       $scope.oneSkill = '';
-      $scope.editSkill = false;
-      init()
+      $scope.editIt = false;
+      initAlso()
     })
   };
 
   $scope.editInfo = function (id) {
     console.log(id);
-    $scope.editStuff = true;
+    $scope.editProject = true;
     Info.getOneInfo(id).then(function (response) {
       console.log(response);
       $scope.oneInfo = response.data.data;
@@ -91,10 +93,10 @@ angular.module('bertResume').controller('adminCtrl', function($scope, Info, Skil
 
   $scope.editSkill = function (id) {
     console.log(id);
-    $scope.editSkill = true;
+    $scope.editIt = true;
     Skill.getOneSkill(id).then(function (response) {
       console.log(response);
-      $scope.oneInfo = response.data.data;
+      $scope.oneSkill = response.data.data;
     });
   };
 });

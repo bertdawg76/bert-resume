@@ -5,6 +5,7 @@ var InfoSchema = new mongoose.Schema({
   describe: { type: String, required: true},
   project: { type: String, required: true},
   url: { type: String, required: true},
+  webUrl: { type: String },
   createdAt: {type: Date, default: Date.now}
 });
 

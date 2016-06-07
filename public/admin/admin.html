@@ -1,4 +1,4 @@
-<navbar></navbar>
+
 
 <div class="panel-body">
   <form novalidate>
@@ -61,40 +61,67 @@
 
 
 
-<div class="panel-body" ng-if="editStuff">
+<div class="panel-body" ng-if="editIt">
   <h2>Edit skills</h2>
   <form novalidate>
     <div class="col-md-10">
       <div class="form-group">
         <label for="title" class="col-sm-2 control-label">Title</label>
         <div class="col-sm-10">
-          <input type="text" ng-model="oneInfo.title" class="form-control" placeholder="skill title"/>
+          <input type="text" ng-model="oneSkill.title" class="form-control" placeholder="skill title"/>
         </div>
       </div>
       <div class="form-group">
         <label for="title" class="col-sm-2 control-label">Title</label>
         <div class="col-sm-10">
-          <input type="text" ng-model="oneInfo.description" class="form-control" placeholder="skill description"/>
+          <input type="text" ng-model="oneSkill.description" class="form-control" placeholder="skill description"/>
         </div>
       </div>
 
+      <button class="btn btn-primary" role="button" ng-click="updateSkill(oneSkill)">submit</button>
+    </div>
+  </form>
+</div>
+
+<div class="panel-body" ng-if="editProject">
+  <h2>Edit Projects</h2>
+  <form novalidate>
+    <div class="col-md-10">
       <div class="form-group">
         <label for="title" class="col-sm-2 control-label">Title</label>
         <div class="col-sm-10">
-          <input type="text" ng-model="oneInfo.url" class="form-control" placeholder="github url"/>
+          <input type="text" ng-model="oneInfo.project" class="form-control" placeholder="Project title"/>
         </div>
       </div>
+      <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-10">
+          <input type="text" ng-model="oneInfo.describe" class="form-control" placeholder="Project description"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-10">
+          <input type="text" ng-model="oneInfo.url" class="form-control" placeholder="Project Github url"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-10">
+          <input type="text" ng-model="oneInfo.webUrl" class="form-control" placeholder="Project website url"/>
+        </div>
+      </div>
+
       <button class="btn btn-primary" role="button" ng-click="updateInfo(oneInfo)">submit</button>
     </div>
   </form>
 </div>
 
-
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-md-4">
-      <h1>Products</h1>
-      <p ng-show="items.length < 1">No skills to show.</p>
+      <h1>Skills</h1>
+      <p ng-show="thing.length < 1">No skills to show.</p>
     </div>
   </div>
 
@@ -103,15 +130,43 @@
       <div class="thumbnail">
         <div class="caption">
           <h3>{{thing.title}}</h3>
-          <p>Description: {{thing.description | limitTo: 100}} ...</p>
-          <p>Github url: {{thing.url}}</p>
+          <p>Description: {{thing.description | limitTo: 100}}</p>
+
           <p>
-            <a ui-sref="viewProduct({id: info._id})" class="btn btn-default" role="button">Details</a>
-            <button class="btn btn-primary" role="button" ng-click="removeInfo(skill._id)">Delete</button>
-            <button class="btn btn-primary" role="button" ng-click="editInfo(skill._id)">Edit</button>
+            <button class="btn btn-primary" role="button" ng-click="removeSkill(thing._id)">Delete</button>
+            <button class="btn btn-primary" role="button" ng-click="editSkill(thing._id)">Edit</button>
           </p>
         </div>
       </div>
     </div>
   </div>
+
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <h1>Projects</h1>
+      <p ng-show="thing.length < 1">No Projects to show.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-md-4" ng-repeat="project in admin.projects">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3>{{project.project}}</h3>
+          <p>Description: {{project.describe | limitTo: 100}}</p>
+          <p>Github Url: {{project.url}}</p>
+          <p>Website Url: {{project.webUrl}}</p>
+
+          <p>
+            <button class="btn btn-primary" role="button" ng-click="removeInfo(project._id)">Delete</button>
+            <button class="btn btn-primary" role="button" ng-click="editInfo(project._id)">Edit</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

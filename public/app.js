@@ -1,6 +1,8 @@
-angular.module('bertResume', ['ui.router']);
+angular.module('bertResume', ['ui.router', 'ngAnimate', 'ngAria', 'ngMaterial', 'ui.bootstrap']);
 
 angular.module('bertResume').config(function($urlRouterProvider, $stateProvider) {
+
+
 
   $urlRouterProvider.otherwise('/info');
   $stateProvider
@@ -20,7 +22,8 @@ angular.module('bertResume').config(function($urlRouterProvider, $stateProvider)
       .state('admin', {
         url:'/admin',
         templateUrl: 'admin/admin.html',
-        controller: 'adminCtrl'
+        controller: 'adminCtrl',
+        controllerAs: 'admin'
       })
       .state('info', {
         url: '/info',
