@@ -8,6 +8,10 @@
   },
   "author": "Bert Coleman",
   "license": "ISC",
+  "engines": {
+    "node": "4.4.5",
+    "npm": "2.15.5"
+  },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.1",
