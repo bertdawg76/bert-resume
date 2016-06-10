@@ -1,6 +1,6 @@
 //Saved environment wicked awesome stuff
 
-require('dotenv').load();
+//require('dotenv').load();
 
 //Initialize Express
 var express = require('express');
@@ -8,8 +8,8 @@ var app = express();
 require('./server/Config/database');
 require('./server/Config/passport');
 
-var path = require('path');
-var favicon = require('serve-favicon');
+
+
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
