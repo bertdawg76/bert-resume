@@ -1,7 +1,7 @@
 # Dependency directory
 
 node_modules
-public/bower_components
+
 # Environment variables
 
 .env

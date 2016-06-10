@@ -7,9 +7,6 @@ var express = require('express');
 var app = express();
 require('./server/Config/database');
 require('./server/Config/passport');
-//websocket stuff
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
 
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -45,12 +42,7 @@ app.use(bodyParser());
 app.use(express.static(__dirname + '/public'));
 
 
-io.on('connection', function(socket){
-  console.log('a user has connected');
-  socket.on('disconnect', function(){
-    console.log('a user has disconnected');
-  })
-});
+
 
 app.use(cookieParser());
 app.use(session({secret: process.env.JWT_SECRET}));
@@ -65,7 +57,7 @@ app.use('/api', routes);
 
 
 
-http.listen(port, function(err){
+app.listen(port, function(err){
   if (err) throw err;
   console.log('server is running on port: ' + port)
 });
