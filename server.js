@@ -27,7 +27,7 @@ require('./server/Models/info.js');
 
 
 //var routes = require('./server/Routes/index');
-var port = 8800;
+app.set('port', process.env.PORT || 8800);
 
 
 
@@ -57,7 +57,7 @@ app.use('/api', routes);
 
 
 
-app.listen(port, function(err){
+app.listen(app.get('port'), function(err){
   if (err) throw err;
-  console.log('server is running on port: ' + port)
+  console.log('server is running on port: ' + app.get('port'))
 });
