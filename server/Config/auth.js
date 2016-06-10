@@ -2,8 +2,9 @@ var passport = require('passport');
 var express = require('express');
 var jwt = require('express-jwt');
 var router = express.Router();
+var config = require('../Config');
 var auth = jwt({
-  secret: process.env.JWT_SECRET,
+  secret: config.sessionSecret,
   userProperty: 'payload'
 });
 

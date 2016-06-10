@@ -5,6 +5,6 @@ node_modules
 # Environment variables
 
 .env
-npm-debug.log
 
-.DS_Store
+server/Config/development.json
+

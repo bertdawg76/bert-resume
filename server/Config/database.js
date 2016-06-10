@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-var dbURI = process.env.mlabURI;
+var config = require('../Config');
+var dbURI = config.dbURI;
 
 
 mongoose.connect(dbURI);

@@ -1,16 +1,10 @@
 //Saved environment wicked awesome stuff
-
-//require('dotenv').load();
-
 //Initialize Express
 var express = require('express');
 var app = express();
 require('./server/Config/database');
 require('./server/Config/passport');
 
-
-
-var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var cors = require('cors');
@@ -18,7 +12,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var fs = require('fs');
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+var config = require('./server/Config');
 
 
 
@@ -33,7 +27,7 @@ var port = process.env.PORT || 8800;
 
 
 //middleware
-app.use(logger('dev'));
+
 
 app.use(cors());
 
@@ -45,7 +39,7 @@ app.use(express.static(__dirname + '/public'));
 
 
 app.use(cookieParser());
-app.use(session({secret: process.env.JWT_SECRET}));
+app.use(session({secret: config.sessionSecret}));
 app.use(passport.initialize());
 app.use(passport.session());
 var routes = require('./server/Routes/index');
